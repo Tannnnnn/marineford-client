@@ -47,16 +47,22 @@ public class Boat extends HttpServlet {
 		ClientConfig config = new DefaultClientConfig(); 
 		Client client = Client.create(config); 
 		WebResource service = client.resource(getBaseURI()); 
+		WebResource path = service.path("Boat").path("findBoat");
+		
+		if(name != null) {
+			path = path.path(name);
+		}else{
+			name = "";
+		}
 		
 		// request get
-
-		ClientResponse clientResponse = service.path("Boat").path("findBoat").path(name) .accept(MediaType.TEXT_XML).get(ClientResponse.class);
-
+		ClientResponse clientResponse = path .accept(MediaType.TEXT_XML).get(ClientResponse.class);
+		
 		if (clientResponse.getStatus() != 200) {
 			out.print("<html>");
 			out.print("<body>");
 			out.print("<div>");
-			out.print("<h11>");
+			out.print("<h1>");
 			out.print("Search not fornd!!!");
 			out.print("/h1");
 			out.print("</body>");
@@ -75,8 +81,9 @@ public class Boat extends HttpServlet {
 	    } catch (Exception e) {  
 	        e.printStackTrace();  
 	    } 
+	    System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 	
-		NodeList nList  = doc.getElementsByTagName("Boat");
+		NodeList nList  = doc.getElementsByTagName("return");
 		response.setContentType("text/html;charset-UTF-8");
 		out.print("<html>");
 		out.print("<body>");
@@ -119,7 +126,7 @@ public class Boat extends HttpServlet {
 	}
 	
 	private static URI getBaseURI() { 
-		return UriBuilder.fromUri( "http://localhost:8080/marindford-client/find").build(); 
+		return UriBuilder.fromUri( "http://localhost:8080/marineford-service/find/").build(); 
 	}
 
 
