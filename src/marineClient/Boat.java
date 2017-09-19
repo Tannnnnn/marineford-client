@@ -86,16 +86,24 @@ public class Boat extends HttpServlet {
 		NodeList nList  = doc.getElementsByTagName("return");
 		response.setContentType("text/html;charset-UTF-8");
 		out.print("<html>");
+		out.print("<head>");
+		out.print("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">");
+		out.print("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
+		out.print("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
+		out.print("</head>");
 		out.print("<body>");
 		out.print("<center>");out.print("<h2>");out.print("Search Results");out.print("</h2>");out.print("</center>");
 		out.print("<center>");
-		out.print("<table border=1>");
+		out.println("<div class=\"container\">");
+		out.print("<table class=\"table table-striped\">");
 		out.print("<tr>");
 		out.print("<th>");out.print("boat_id");out.print("</th>");
 		out.print("<th>");out.print("name");out.print("</th>");
 		out.print("<th>");out.print("type");out.print("</th>");
 		out.print("<th>");out.print("maxseat");out.print("</th>");
 		out.print("</tr>");
+		
+		
 		for (int temp = 0; temp < nList.getLength(); temp++) {
 			Node nNode = nList.item(temp);
 			System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -110,6 +118,7 @@ public class Boat extends HttpServlet {
 			}
 		}
 		out.print("</table>");
+		out.println("</div>");
 		out.print("</center>");
 		out.print("</body>");
 		out.print("</html>");
