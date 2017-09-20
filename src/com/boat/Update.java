@@ -1,4 +1,4 @@
-package marineClient;
+package com.boat;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -41,7 +41,7 @@ public class Update extends HttpServlet {
     	PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
     	
     	// value from web
-    	String boat_id = request.getParameter("boat_id");
+    	String id = request.getParameter("id");
     	
     	// request and response RESTful
     	ClientConfig config = new DefaultClientConfig(); 
@@ -49,7 +49,7 @@ public class Update extends HttpServlet {
     	WebResource service = client.resource(getBaseURI()); 
     			
     	// request xml
-    	ClientResponse clientXmlResponse = service.path("Boat").path("findBoat").path("getUpdate").path(boat_id) .accept(MediaType.TEXT_XML).get(ClientResponse.class);
+    	ClientResponse clientXmlResponse = service.path("rest").path("boat").path("getUpdate").path(id) .accept(MediaType.TEXT_XML).get(ClientResponse.class);
     	String outputFromXml =  clientXmlResponse.getEntity(String.class);
     	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
     	DocumentBuilder builder;  
@@ -63,11 +63,11 @@ public class Update extends HttpServlet {
 			e.printStackTrace();  
 		} 
     	
-    	NodeList nList  = doc.getElementsByTagName("course");
+    	NodeList nList  = doc.getElementsByTagName("boat");
 		
 		// out put web
     	out.print("<html>");
-    	out.println("<head><base href=\"http://localhost:8080/marineford-service/find/\"></head>");
+    	out.println("<head><base href=\"http://localhost:8080/marineford-client/\"></head>");
 		out.println("<body>");
 		
 		for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -77,11 +77,11 @@ public class Update extends HttpServlet {
 				Element eElement = (Element) nNode;
 				
 				out.println("<form action=\"save\">");
-				out.println("<input type=\"hidden\" name=\"id\" value=\""+boat_id+"\"><br>");
+				out.println("<input type=\"hidden\" name=\"id\" value=\""+id+"\"><br>");
 				out.println("Boat ID : <input type=\"text\" name=\"boat_id\" value=\""+eElement.getElementsByTagName("boat_id").item(0).getTextContent()+"\"><br>");
-				out.println("Boat name: <input type=\"text\" name=\"name\" value=\""+eElement.getElementsByTagName("name").item(0).getTextContent()+"\"><br>");
-				out.println("type : <input type=\"text\" name=\"type\" value=\""+eElement.getElementsByTagName("type").item(0).getTextContent()+"\"><br>");
-				out.println("Maxseat : <input type=\"text\" name=\"maxseat\" value=\""+eElement.getElementsByTagName("maxseat").item(0).getTextContent()+"\"><br>");
+				out.println("Name: <input type=\"text\" name=\"name\" value=\""+eElement.getElementsByTagName("name").item(0).getTextContent()+"\"><br>");
+				out.println("Type : <input type=\"text\" name=\"type\" value=\""+eElement.getElementsByTagName("type").item(0).getTextContent()+"\"><br>");
+				out.println("maxseat : <input type=\"text\" name=\"maxseat\" value=\""+eElement.getElementsByTagName("maxseat").item(0).getTextContent()+"\"><br>");
 				out.println("<input type=\"submit\" value=\"Update\">");
 				out.println("</form>");
 				
@@ -102,6 +102,6 @@ public class Update extends HttpServlet {
 	}
 	
 	private static URI getBaseURI() { 
-		return UriBuilder.fromUri( "http://localhost:8080/marineford-service/find/").build(); 
+		return UriBuilder.fromUri( "http://localhost:8080/marineford-service/").build(); 
 	}
 }
