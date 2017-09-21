@@ -90,8 +90,9 @@ public class Save extends HttpServlet {
 		out.print("<div class=\"jumbotron\">");
 		out.print("<h1>Create Boat</h1>");
 		out.println("<h2>Result</h2>");
+		out.println("<span class=\"glyphicon glyphicon-floppy-open\" aria-hidden=\"true\"></span>");
 		out.println(result+"<br><br>");
-		out.println("<a href=\"boat\">Back to Home</a>");
+		out.println("<a href=\"boat\"><button type=\"button\" class=\"btn btn-danger\">Back to Home</button></a>");
 		out.println("</div>");
 		out.println("</div>");
 		out.println("</center>");
