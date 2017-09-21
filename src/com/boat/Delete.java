@@ -50,17 +50,28 @@ public class Delete extends HttpServlet {
 		}
 		
 		// out put web
+			
+		
 		out.print("<html>");
-		out.println("<head><base href=\"http://localhost:8080/marineford-client/\"></head>");
+		out.println("<head><base href=\"http://localhost:8080/marineford-client/\">");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\r\n");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">");
+		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>");
+
+
+		out.println("</head>");
 		out.print("<body>");
 		out.println("<center>");
-		out.println("<h2>Result</h2>");
-		out.println(result+"<br><br>");
-		out.println("<a href=\"boat\">Back to Home</a>");
-		out.println("</center>");
 		
+		out.println("<h2><div class=\"jumbotron\"><h1>Result</h1>\n" + 
+				"Delete Successful<br><br>\n" + 
+				"<a href=\"boat\"><button type=\"button\" class=\"btn btn-warning\">Back to Home</button></a>\n" + 
+				"</div></h2>");
+
+		out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");
+
 	}
     
 
