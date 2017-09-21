@@ -137,8 +137,8 @@ public class Boat extends HttpServlet {
 				out.println("<td>"+eElement.getElementsByTagName("type").item(0).getTextContent()+"</td>");
 				out.println("<td>"+eElement.getElementsByTagName("maxseat").item(0).getTextContent()+"</td>");
 				String id = eElement.getElementsByTagName("id").item(0).getTextContent();
-				out.println("<td><a href=\"update?id="+id+"\">แก้ไข</a></td>");
-				out.println("<td><a href=\"delete?id="+id+"\">ลบ</a></td>");
+				out.println("<td><a href=\"update?id="+id+"\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span> Edit</a></td>");
+				out.println("<td><a href=\"delete?id="+id+"\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span> Delete</a></td>");
 				out.println("</tr>");
 			}
 		}
