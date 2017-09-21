@@ -67,7 +67,11 @@ public class Update extends HttpServlet {
 		
 		// out put web
     	out.print("<html>");
-    	out.println("<head><base href=\"http://localhost:8080/marineford-client/\"></head>");
+    	out.println("<head><base href=\"http://localhost:8080/marineford-client/\">");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\r\n");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">");
+		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>");
+		out.println("</head>");
 		out.println("<body>");
 		
 		for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -76,13 +80,50 @@ public class Update extends HttpServlet {
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) nNode;
 				
+				
+//				
+//				out.println("<div class=\"jumbotron\">");
+//				out.println("<div class=\"container\">");
+//				out.println("<h1> Update </h1>");
+//				out.println("<hr>");
+//				out.println("<form class=\"form-horizontal\" action=\"save\">");
+//				out.println("<input type=\"hidden\" name=\"id\" value=\""+id+"\"><br>");
+//				out.println("<label for=\"inputEmail3\" class=\"col-sm-3 control-label\">Boat ID :</label>");
+//				out.println("<div class=\"col-sm-5\">");
+//				out.println("<input type=\"text\" name=\"boat_id\" class=\"form-control\"  value=\""+eElement.getElementsByTagName("boat_id").item(0).getTextContent()+"\" >");
+//				out.println("</div>");
+//				out.println("</form>");
+//				
+//				
+//				out.println("<form class=\"form-horizontal\" action=\"save\">");
+//				out.println("<label for=\"inputEmail3\" class=\"col-sm-3 control-label\">Boat ID :</label>");
+//				out.println("<div class=\"col-sm-5\">");
+//				out.println("<input type=\"text\" name=\"boat_id\" class=\"form-control\"  value=\""+eElement.getElementsByTagName("boat_id").item(0).getTextContent()+"\" >");
+//				out.println("</div>");
+//				out.println("</form>");
+//				
+//				out.println("</div>");
+//				out.println("</div>");
+				
+				
+				
+				
+				
+				out.println("<br>");
+			
+				out.println("<div class=\"container\">");
+				out.println("<div class=\"jumbotron\">");
+				
+				out.print("<h1>Update Boat</h1>");
+				
 				out.println("<form action=\"save\">");
 				out.println("<input type=\"hidden\" name=\"id\" value=\""+id+"\"><br>");
-				out.println("Boat ID : <input type=\"text\" name=\"boat_id\" value=\""+eElement.getElementsByTagName("boat_id").item(0).getTextContent()+"\"><br>");
-				out.println("Name: <input type=\"text\" name=\"name\" value=\""+eElement.getElementsByTagName("name").item(0).getTextContent()+"\"><br>");
-				out.println("Type : <input type=\"text\" name=\"type\" value=\""+eElement.getElementsByTagName("type").item(0).getTextContent()+"\"><br>");
-				out.println("maxseat : <input type=\"text\" name=\"maxseat\" value=\""+eElement.getElementsByTagName("maxseat").item(0).getTextContent()+"\"><br>");
-				out.println("<input type=\"submit\" value=\"Update\">");
+				out.println("<be>");
+				out.println("boat_id: <input type=\"text\" class=\"form-control\" name=\"boat_id\" value=\""+eElement.getElementsByTagName("boat_id").item(0).getTextContent()+"\"><br>");
+				out.println("name : <input type=\"text\"class=\"form-control\" name=\"name\" value=\""+eElement.getElementsByTagName("name").item(0).getTextContent()+"\"><br>");
+				out.println("type: <input type=\"text\" class=\"form-control\" name=\"type\" value=\""+eElement.getElementsByTagName("type").item(0).getTextContent()+"\"><br>");
+				out.println("maxseat: <input type=\"text\" class=\"form-control\" name=\"maxseat\" value=\""+eElement.getElementsByTagName("maxseat").item(0).getTextContent()+"\"><br>");
+				out.println("<input type=\"submit\" class=\"btn btn-primary\" value=\"Update\">");
 				out.println("</form>");
 				
 			}
