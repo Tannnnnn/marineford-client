@@ -77,12 +77,23 @@ public class Save extends HttpServlet {
 		
 		// out put web
 		out.print("<html>");
-		out.println("<head><base href=\"http://localhost:8080/marineford-client/\"></head>");
+		out.println("<head><base href=\"http://localhost:8080/marineford-client/\">");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">\r\n");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">");
+		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>");
+		out.println("</head>");
 		out.print("<body>");
 		out.println("<center>");
+		
+		out.print("<div class=\"container\">");
+		out.print("<br><br><br>");
+		out.print("<div class=\"jumbotron\">");
+		out.print("<h1>Create Boat</h1>");
 		out.println("<h2>Result</h2>");
 		out.println(result+"<br><br>");
 		out.println("<a href=\"boat\">Back to Home</a>");
+		out.println("</div>");
+		out.println("</div>");
 		out.println("</center>");
 		
 		out.println("</body>");
