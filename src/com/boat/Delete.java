@@ -63,8 +63,10 @@ public class Delete extends HttpServlet {
 		out.print("<body>");
 		out.println("<center>");
 		
-		out.println("<h2><div class=\"jumbotron\"><h1>Result</h1>\n" + 
+		out.println("<h2><div class=\"jumbotron\"><h1>Result</h1>\n" +
+				"<span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span>"+
 				"Delete Successful<br><br>\n" + 
+				
 				"<a href=\"boat\"><button type=\"button\" class=\"btn btn-warning\">Back to Home</button></a>\n" + 
 				"</div></h2>");
 
